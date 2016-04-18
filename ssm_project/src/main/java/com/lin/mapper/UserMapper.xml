@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lin.dao.UserDao">
+	<!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！ -->
+	<resultMap id="BaseResultMap" type="com.lin.domain.User">
+		<id column="USER_ID" property="userId" jdbcType="INTEGER" />
+		<result column="USER_NAME" property="userName" jdbcType="CHAR" />
+		<result column="USER_PASSWORD" property="userPassword" jdbcType="CHAR" />
+		<result column="USER_EMAIL" property="userEmail" jdbcType="CHAR" />
+	</resultMap>
+	<!-- 查询单条记录 -->
+	<select id="selectUserById" parameterType="int" resultMap="BaseResultMap">
+		SELECT * FROM t_user WHERE USER_ID = #{userId}
+	</select>
+	<select id="selectUserByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+		SELECT *
+		FROM t_user
+		WHERE 1 = 1
+		<if test="userName != null and userName !=''">
+		    AND USER_NAME = #{userName,jdbcType=VARCHAR}
+		</if>
+		ORDER BY USER_ID
+	</select>
+</mapper>
