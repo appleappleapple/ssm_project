@@ -2,8 +2,9 @@
 **1. 工程运行环境**  
 JDK:1.6  
 TOMCAT7  
-Windows7/Eclipse luna   
-对应博文：[http://blog.csdn.net/evankaka/article/details/49452201](http://blog.csdn.net/evankaka/article/details/49452201)   
+Windows7/Eclipse luna  
+对应博文：[http://blog.csdn.net/evankaka/article/details/49452201](http://blog.csdn.net/evankaka/article/details/49452201)     
+打开方式:打开Eclipse,选择File->import->Existing Maven Project,找到项目的pom文件，导入即可。（注意，要安装好Maven,建议直接下一个java ee版本的eclipse,它集成了maven）  
 **2. 后台使用到的框架**  
 Spring+SpringMVC+Mybatis+Maven  
 日志使用：logback  
